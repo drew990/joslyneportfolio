@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 import Head from "next/head";
 import { Image } from "react-bootstrap";
+import Img from "next/image";
 import styles from "../styles/Home.module.css";
 import client from "../apolloClient";
 import RightArrow from "../public/Images/Home/rightArrow.png";
@@ -20,7 +21,7 @@ export default function Home({ galleries }) {
       </Head>
       <div className={styles.HeroImg}>
         <h1>
-          Welcome! Here you'll find
+          Welcome! Here you will find
           <div className={styles.introText}>
             <ul className={styles.flip4}>
               <li>Stories</li>
@@ -46,7 +47,7 @@ export default function Home({ galleries }) {
                   style={{ color: "#000", textDecoration: "None" }}
                 >
                   {gallery.category_id}
-                  <Image src={RightArrow} alt="Arrow" width="25" height="20" />
+                  <Img src={RightArrow} alt="==>" width={25} height={20} />
                 </a>
               </motion.div>
             </h3>
