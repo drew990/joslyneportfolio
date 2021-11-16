@@ -18,7 +18,11 @@ export default function gallerySection({ galleries }) {
         <link rel="icon" href="/static/favicon.ico" />
       </Head>
       {galleries.map((gallery, key) => (
-        <a href={`/gallery/${gallery.slug}`} className={styles.displayImgLink}>
+        <a
+          key={key}
+          href={`/gallery/${gallery.slug}`}
+          className={styles.displayImgLink}
+        >
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -30,7 +34,6 @@ export default function gallerySection({ galleries }) {
               alignItems: "center",
               position: "relative",
             }}
-            key={key}
           >
             <Image
               src={gallery.picture[0].url}
