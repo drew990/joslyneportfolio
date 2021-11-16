@@ -1,0 +1,32 @@
+.container {
+  padding: 0vh 10vw;
+  text-align: left;
+  min-height: 75vh;
+}
+
+.ImgBackground {
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
+  width: auto;
+  height: 400px;
+  border-radius: 5px;
+  margin: 16px 0;
+}
+
+.FlexImg {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .ImgBackground {
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin: 16px 0;
+  }
+}

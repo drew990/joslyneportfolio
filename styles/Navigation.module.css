@@ -1,0 +1,19 @@
+.navLink {
+  color: black;
+  padding: 8px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: black;
+  padding: 8px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .navLink {
+    text-align: center;
+  }
+}

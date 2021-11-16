@@ -1,0 +1,26 @@
+.container {
+  padding: 2vh 10vw 5vh 10vw;
+  text-align: center;
+  min-height: 75vh;
+}
+
+.AboutMeImg {
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+  height: 400px;
+  width: 400px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 5vh 5vw;
+    text-align: center;
+    min-height: 75vh;
+  }
+  .AboutMeImg {
+    height: 300px;
+    width: 300px;
+  }
+}
