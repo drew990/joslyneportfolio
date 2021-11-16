@@ -12,6 +12,20 @@
   text-decoration: none;
 }
 
+.NavBrandLink {
+  font-size: 24;
+  font-weight: Bold;
+  text-decoration: none;
+  color: #000;
+}
+
+.NavBrandLink:hover {
+  font-size: 24;
+  font-weight: Bold;
+  text-decoration: none;
+  color: #000;
+}
+
 @media (max-width: 600px) {
   .navLink {
     text-align: center;

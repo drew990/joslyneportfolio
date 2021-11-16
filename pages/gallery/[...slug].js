@@ -2,10 +2,11 @@ import React from "react";
 import client from "../../apolloClient";
 import { gql } from "@apollo/client";
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../../styles/slug.module.css";
 import { ScrollToTop } from "../../components/Scroll";
 
-export default function GalleryPage({ gallery }) {
+export default function GalleryPage({ gallery, key }) {
   return (
     <>
       <Head>
@@ -16,7 +17,7 @@ export default function GalleryPage({ gallery }) {
         />
         <link rel="icon" href="/static/favicon.ico" />
       </Head>
-      <div className={styles.container}>
+      <div className={styles.container} key={key}>
         <h1 style={{ textAlign: "center", padding: "2vh 0" }}>
           {gallery.category_id}
         </h1>
@@ -27,9 +28,9 @@ export default function GalleryPage({ gallery }) {
         </div>
 
         <h4 style={{ textAlign: "center", padding: "7vh 0" }}>
-          <a href="/" style={{ color: "#000", textDecoration: "None" }}>
+          <Link href="/" style={{ color: "#000", textDecoration: "None" }}>
             Back to Home
-          </a>
+          </Link>
         </h4>
 
         <ScrollToTop />

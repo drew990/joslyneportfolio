@@ -32,8 +32,8 @@ export default function Home({ galleries }) {
         </h1>
       </div>
       <div className={styles.container}>
-        {galleries.map((gallery) => (
-          <div className={styles.DisplayImg}>
+        {galleries.map((gallery, key) => (
+          <div className={styles.DisplayImg} key={key}>
             <h3>
               <motion.div
                 whileHover={{ x: 50 }}

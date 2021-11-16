@@ -16,7 +16,7 @@ export default function gallerySection({ galleries }) {
         />
         <link rel="icon" href="/static/favicon.ico" />
       </Head>
-      {galleries.map((gallery) => (
+      {galleries.map((gallery, key) => (
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -27,6 +27,7 @@ export default function gallerySection({ galleries }) {
             position: "relative",
             margin: "2vh 3vw",
           }}
+          key={key}
         >
           <a
             href={`/gallery/${gallery.slug}`}

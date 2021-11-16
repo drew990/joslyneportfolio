@@ -1,7 +1,8 @@
 import React from "react";
-import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Container, Navbar, Nav } from "react-bootstrap";
 import styles from "../styles/Navigation.module.css";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function NavBar() {
   return (
@@ -13,17 +14,9 @@ export default function NavBar() {
       >
         <Container>
           <Navbar.Brand>
-            <a
-              href="/"
-              style={{
-                fontSize: 24,
-                fontWeight: "Bold",
-                textDecoration: "none",
-                color: "#000",
-              }}
-            >
-              Joslyne Keehmer
-            </a>
+            <Link href="/">
+              <a className={styles.NavBrandLink}>Joslyne Keehmer</a>
+            </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

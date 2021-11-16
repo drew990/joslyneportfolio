@@ -18,8 +18,8 @@ export default function about({ aboutMes }) {
         <link rel="icon" href="/static/favicon.ico" />
       </Head>
       <h2 style={{ padding: "1vh 0 3vh 0" }}>About Page</h2>
-      {aboutMes.map((aboutMe) => (
-        <Row>
+      {aboutMes.map((aboutMe, key) => (
+        <Row key={key}>
           <Col md={12}>
             <img
               src={aboutMe.pic.url}
