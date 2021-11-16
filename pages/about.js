@@ -59,5 +59,6 @@ export async function getStaticProps() {
     props: {
       aboutMes,
     },
+    revalidate: 10, // In seconds
   };
 }

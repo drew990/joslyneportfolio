@@ -11,28 +11,24 @@
 }
 
 .displayImg {
-  width: 400px;
-  height: 400px;
+  width: auto;
+  max-height: 375px;
   box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
+  filter: brightness(50%);
 }
 
 .displayImgDarken {
   position: absolute;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-  width: 400px;
-  height: 400px;
   display: grid;
   align-content: center;
 }
 
 .displayImgLink {
-  width: 400px;
-  height: 400px;
   display: flex;
   align-content: center;
+  margin: 2vh 3vw;
 }
 
 @media (max-width: 1200px) {
@@ -40,28 +36,6 @@
     padding: 1vh 5vw 5vh 5vw;
     text-align: center;
     min-height: 75vh;
-  }
-  .displayImg {
-    width: 270px;
-    height: 270px;
-    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-  }
-  .displayImgDarken {
-    position: absolute;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    width: 270px;
-    height: 270px;
-    display: grid;
-    align-content: center;
-  }
-  .displayImgLink {
-    width: 270px;
-    height: 270px;
-    display: flex;
-    align-content: center;
   }
 }
 
@@ -73,24 +47,14 @@
   }
   .displayImg {
     width: 300px;
-    height: 300px;
+    height: auto;
     box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-  }
-  .displayImgDarken {
-    position: absolute;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    width: 300px;
-    height: 300px;
-    display: grid;
-    align-content: center;
+    filter: brightness(50%);
   }
   .displayImgLink {
-    width: 300px;
-    height: 300px;
     display: flex;
     align-content: center;
+    margin: 2vh auto;
   }
 }

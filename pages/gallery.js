@@ -18,21 +18,19 @@ export default function gallerySection({ galleries }) {
         <link rel="icon" href="/static/favicon.ico" />
       </Head>
       {galleries.map((gallery, key) => (
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            position: "relative",
-            margin: "2vh 3vw",
-          }}
-          key={key}
-        >
-          <a
-            href={`/gallery/${gallery.slug}`}
-            className={styles.displayImgLink}
+        <a href={`/gallery/${gallery.slug}`} className={styles.displayImgLink}>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            style={{
+              display: "grid",
+              justifyContent: "center",
+              justifyItems: "center",
+              alignItems: "center",
+              position: "relative",
+            }}
+            key={key}
           >
             <Image
               src={gallery.picture[0].url}
@@ -41,8 +39,8 @@ export default function gallerySection({ galleries }) {
             />
 
             <h3 className={styles.displayImgDarken}>{gallery.category_id}</h3>
-          </a>
-        </motion.div>
+          </motion.div>
+        </a>
       ))}
     </div>
   );
@@ -69,5 +67,6 @@ export async function getStaticProps() {
     props: {
       galleries,
     },
+    revalidate: 10, // In seconds
   };
 }

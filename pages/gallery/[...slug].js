@@ -87,5 +87,5 @@ export async function getStaticProps({ params }) {
   const { galleries } = data;
   const gallery = galleries[0];
 
-  return { props: { gallery } };
+  return { props: { gallery }, revalidate: 10 };
 }
