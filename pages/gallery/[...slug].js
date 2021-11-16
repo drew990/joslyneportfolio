@@ -61,7 +61,6 @@ export async function getStaticPaths() {
   const paths = galleries.map((gallery) => ({
     params: { slug: [gallery.slug] },
   }));
-  console.log(paths);
   return { paths, fallback: false };
 }
 

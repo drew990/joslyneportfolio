@@ -6,7 +6,6 @@ import client from "../apolloClient";
 import { Row, Col, Image } from "react-bootstrap";
 
 export default function about({ aboutMes }) {
-  console.log(aboutMes);
   return (
     <div className={styles.container}>
       <Head>
