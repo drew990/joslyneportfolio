@@ -20,15 +20,17 @@ function Footer() {
         <Image src={Insta} alt="Instagram" width="40px" height="40px" />
       </a>
       <h4>© 2021 Joslyne Keehmer</h4>
-      <p>
-        Made by&nbsp;
-        <a
-          href="https://andrewbanagas.com/"
-          style={{ color: "#fff", textDecoration: "underline" }}
-        >
-          Andrew Banagas
-        </a>
-      </p>
+      <div>
+        <p>
+          Made by <br />
+          <a
+            href="https://andrewbanagas.com/"
+            style={{ color: "#fff", textDecoration: "underline" }}
+          >
+            Andrew Banagas
+          </a>
+        </p>
+      </div>
     </div>
   );
 }

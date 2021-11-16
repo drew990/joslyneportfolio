@@ -23,8 +23,9 @@ export default function GalleryPage({ gallery, key }) {
           {gallery.category_id}
         </h1>
         <div className={styles.FlexImg}>
-          {gallery.picture.map((picture) => (
+          {gallery.picture.map((picture, key) => (
             <Image
+              key={key}
               src={picture.url}
               alt="Pic"
               className={styles.ImgBackground}
