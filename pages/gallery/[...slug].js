@@ -3,6 +3,7 @@ import client from "../../apolloClient";
 import { gql } from "@apollo/client";
 import Head from "next/head";
 import Link from "next/link";
+import { Image } from "react-bootstrap";
 import styles from "../../styles/slug.module.css";
 import { ScrollToTop } from "../../components/Scroll";
 
@@ -23,13 +24,19 @@ export default function GalleryPage({ gallery, key }) {
         </h1>
         <div className={styles.FlexImg}>
           {gallery.picture.map((picture) => (
-            <img src={picture.url} alt="Pic" className={styles.ImgBackground} />
+            <Image
+              src={picture.url}
+              alt="Pic"
+              className={styles.ImgBackground}
+            />
           ))}
         </div>
 
         <h4 style={{ textAlign: "center", padding: "7vh 0" }}>
-          <Link href="/" style={{ color: "#000", textDecoration: "None" }}>
-            Back to Home
+          <Link href="/">
+            <a style={{ color: "#000", textDecoration: "None" }}>
+              Back to Home
+            </a>
           </Link>
         </h4>
 

@@ -3,7 +3,7 @@ import styles from "../styles/about.module.css";
 import Head from "next/head";
 import { gql } from "@apollo/client";
 import client from "../apolloClient";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Image } from "react-bootstrap";
 
 export default function about({ aboutMes }) {
   console.log(aboutMes);
@@ -21,7 +21,7 @@ export default function about({ aboutMes }) {
       {aboutMes.map((aboutMe, key) => (
         <Row key={key}>
           <Col md={12}>
-            <img
+            <Image
               src={aboutMe.pic.url}
               alt="About Me Pic"
               className={styles.AboutMeImg}

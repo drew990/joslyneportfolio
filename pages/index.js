@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 import Head from "next/head";
-import Image from "next/image";
+import { Image } from "react-bootstrap";
 import styles from "../styles/Home.module.css";
 import client from "../apolloClient";
 import RightArrow from "../public/Images/Home/rightArrow.png";
@@ -55,7 +55,7 @@ export default function Home({ galleries }) {
                 if (key < 6) {
                   return (
                     <div key={key}>
-                      <img
+                      <Image
                         src={picture.url}
                         alt="pic"
                         className={styles.ImgBackground}

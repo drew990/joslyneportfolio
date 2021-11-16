@@ -4,6 +4,7 @@ import { gql } from "@apollo/client";
 import styles from "../styles/Gallery.module.css";
 import { motion } from "framer-motion";
 import Head from "next/head";
+import { Image } from "react-bootstrap";
 
 export default function gallerySection({ galleries }) {
   return (
@@ -33,7 +34,7 @@ export default function gallerySection({ galleries }) {
             href={`/gallery/${gallery.slug}`}
             className={styles.displayImgLink}
           >
-            <img
+            <Image
               src={gallery.picture[0].url}
               alt="Pics!"
               className={styles.displayImg}
