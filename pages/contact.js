@@ -4,7 +4,7 @@ import Head from "next/head";
 import styles from "../styles/Contact.module.css";
 import axios from "axios";
 
-function contact() {
+function Contact() {
   const [status, setStatus] = useState({
     submitted: false,
     submitting: false,
@@ -157,4 +157,4 @@ function contact() {
   );
 }
 
-export default contact;
+export default Contact;
