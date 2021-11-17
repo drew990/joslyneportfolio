@@ -1,29 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Head from "next/head";
 import styles from "../styles/Contact.module.css";
+import axios from "axios";
 
 function contact() {
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [message, setMessage] = useState("");
+  const [status, setStatus] = useState({
+    submitted: false,
+    submitting: false,
+    info: { error: false, msg: null },
+  });
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
+  const [inputs, setInputs] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  //   const data = {
-  //     name,
-  //     email,
-  //     message,
-  //   };
+  const handleServerResponse = (ok, msg) => {
+    if (ok) {
+      setStatus({
+        submitted: true,
+        submitting: false,
+        info: { error: false, msg: msg },
+      });
+      setInputs({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } else {
+      setStatus({
+        info: { error: true, msg: msg },
+      });
+    }
+  };
 
-  //   fetch("/api/mail", {
-  //     method: "post",
-  //     body: JSON.stringify(data),
-  //   });
+  const handleOnChange = (e) => {
+    e.persist();
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+    setStatus({
+      submitted: false,
+      submitting: false,
+      info: { error: false, msg: null },
+    });
+  };
 
-  //   console.log(data);
-  // };
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
+    axios({
+      method: "POST",
+      url: "https://formspree.io/f/xoqygkkz",
+      data: inputs,
+    })
+      .then((response) => {
+        handleServerResponse(
+          true,
+          "Thank you, your message has been submitted."
+        );
+      })
+      .catch((error) => {
+        handleServerResponse(false, error.response.data.error);
+      });
+  };
 
   return (
     <div className={styles.container}>
@@ -43,31 +86,29 @@ function contact() {
           }
         `}
       </style>
-      <form
-        className={styles.formContainer}
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        action="contact/?success=true"
-      >
-        <input type="hidden" name="form-name" value="contact" />
+      <form className={styles.formContainer} onSubmit={handleOnSubmit}>
         <p>
           <label htmlFor="name">Full Name</label>
           <input
-            type="text"
+            onChange={handleOnChange}
+            value={inputs.name}
+            name="name"
             id="name"
             placeholder="Full Name"
+            type="text"
             required
-            name="fullname"
             className={styles.inputStyle}
           />
         </p>
         <p>
           <label htmlFor="email">Email</label>
           <input
-            type="email"
+            onChange={handleOnChange}
+            value={inputs.email}
             id="email"
+            name="_replyto"
             placeholder="Full Email"
+            type="email"
             required
             className={styles.inputStyle}
           />
@@ -75,9 +116,12 @@ function contact() {
         <p>
           <label htmlFor="message">Message</label>
           <textarea
+            onChange={handleOnChange}
+            value={inputs.message}
             id="message"
-            type="text"
+            name="message"
             placeholder="Full Message"
+            type="text"
             required
             rows="1"
             className={styles.textAreaStyle}
@@ -95,11 +139,20 @@ function contact() {
               width: "200px",
               border: " 1.75px solid black;",
             }}
+            disabled={status.submitting}
           >
-            Submit
+            {!status.submitting
+              ? !status.submitted
+                ? "Submit"
+                : "Submitted"
+              : "Submitting..."}
           </motion.button>
         </p>
       </form>
+      {status.info.error && (
+        <div className="error">Error: {status.info.msg}</div>
+      )}
+      {!status.info.error && status.info.msg && <p>{status.info.msg}</p>}
     </div>
   );
 }
