@@ -19,7 +19,13 @@ export default function GalleryPage({ gallery, key }) {
         <link rel="icon" href="/static/favicon.ico" />
       </Head>
       <div className={styles.container} key={key}>
-        <h1 style={{ textAlign: "center", padding: "2vh 0" }}>
+        <h1
+          style={{
+            textAlign: "center",
+            padding: "2vh 0",
+            overflowWrap: "break-word",
+          }}
+        >
           {gallery.category_id}
         </h1>
         <div className={styles.FlexImg}>
