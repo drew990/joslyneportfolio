@@ -21,7 +21,7 @@ function Footer() {
       </a>
       <h4>© 2021 Joslyne Keehmer</h4>
       <p>
-        Made by &nbsp;
+        Made by&nbsp;
         <a
           href="https://andrewbanagas.com/"
           style={{ color: "#fff", textDecoration: "underline" }}

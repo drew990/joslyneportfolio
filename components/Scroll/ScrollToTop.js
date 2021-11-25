@@ -36,7 +36,7 @@ export const ScrollToTop = () => {
         onClick={scrollToTop}
         className={classNames(isVisible ? styles.Show : "opacity-0")}
       >
-        <h3>^</h3>
+        <h3 style={{ marginBottom: 0 }}>^</h3>
       </button>
     </div>
   );

@@ -74,7 +74,7 @@ function Contact() {
         <title>Joslyne Keehmer - Contact Form</title>
         <meta
           name="description"
-          content="Contact Joshlyne Keehmer using this form"
+          content="Contact Joslyne Keehmer using this form"
         />
         <link rel="icon" href="/static/favicon.ico" />
       </Head>

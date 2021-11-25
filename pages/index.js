@@ -15,7 +15,7 @@ export default function Home({ galleries }) {
         <title>Joslyne Keehmer - Photographer</title>
         <meta
           name="description"
-          content="Joshlyne is a travel photographer who's always on the go. No matter where my clients are located, I will do my best to visit them."
+          content="Joslyne is a travel photographer who's always on the go. No matter where my clients are located, I will do my best to visit them."
         />
         <link rel="icon" href="/static/favicon.ico" />
       </Head>
@@ -36,20 +36,19 @@ export default function Home({ galleries }) {
         {galleries.map((gallery, key) => (
           <div className={styles.DisplayImg} key={key}>
             <h3>
-              <motion.div
-                whileHover={{ x: 50 }}
-                whileTap={{ scale: 0.95, x: 0 }}
-                transition={{ ease: "easeInOut", duration: 0.3 }}
-                style={{ width: "100%" }}
+              <a
+                href={`/gallery/${gallery.slug}`}
+                style={{ color: "#000", textDecoration: "None" }}
               >
-                <a
-                  href={`/gallery/${gallery.slug}`}
-                  style={{ color: "#000", textDecoration: "None" }}
+                <motion.div
+                  whileHover={{ x: 50 }}
+                  whileTap={{ scale: 0.95, x: 0 }}
+                  transition={{ ease: "easeInOut", duration: 0.3 }}
                 >
                   {gallery.category_id}
                   <Img src={RightArrow} alt="==>" width={25} height={20} />
-                </a>
-              </motion.div>
+                </motion.div>
+              </a>
             </h3>
             <div className={styles.FlexImg}>
               {gallery.picture.map((picture, key) => {

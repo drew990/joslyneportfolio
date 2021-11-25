@@ -13,7 +13,7 @@ export default function gallerySection({ galleries }) {
         <title>Joslyne Keehmer - Photographer</title>
         <meta
           name="description"
-          content="Gallery of the best Joshlyne Keehmer images."
+          content="Gallery of the best Joslyne Keehmer images."
         />
         <link rel="icon" href="/static/favicon.ico" />
       </Head>

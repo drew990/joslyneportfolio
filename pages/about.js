@@ -12,7 +12,7 @@ export default function about({ aboutMes }) {
         <title>Joslyne Keehmer - About Me</title>
         <meta
           name="description"
-          content="My name is Joshlyne Keehmer and I am a freelance photographer from Sacramento, California."
+          content="My name is Joslyne Keehmer and I am a freelance photographer from Sacramento, California."
         />
         <link rel="icon" href="/static/favicon.ico" />
       </Head>

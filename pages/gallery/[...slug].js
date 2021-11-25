@@ -14,7 +14,7 @@ export default function GalleryPage({ gallery, key }) {
         <title>Joslyne Keehmer - Photographer - {gallery.category_id}</title>
         <meta
           name="description"
-          content="Joshlyne is a travel photographer who's always on the go. No matter where my clients are located, I will do my best to visit them."
+          content="Joslyne is a travel photographer who's always on the go. No matter where my clients are located, I will do my best to visit them."
         />
         <link rel="icon" href="/static/favicon.ico" />
       </Head>
