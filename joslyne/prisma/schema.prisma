@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id                String    @id @default(cuid())
+  username          String    @unique
+  passwordHash      String?
+  hasEnteredAccount Boolean   @default(false)
+  accountSetupComplete Boolean @default(false)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  lastLoginAt       DateTime?
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String?  @db.Text
+  sortOrder   Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  photos      Photo[]
+}
+
+model Photo {
+  id          String   @id @default(cuid())
+  title       String
+  alt         String?
+  description String?  @db.Text
+  imageUrl    String
+  thumbUrl    String
+  pathname    String
+  thumbPath   String
+  width       Int?
+  height      Int?
+  sortOrder   Int      @default(0)
+  isFeatured  Boolean  @default(false)
+  isVisible   Boolean  @default(true)
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([categoryId])
+  @@index([isFeatured])
+}
+
+model AboutPage {
+  id        String   @id @default(cuid())
+  headline  String   @default("About Joslyne")
+  body      String   @db.Text
+  imageUrl  String?
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String   @db.Text
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model SiteSetting {
+  id                 String   @id @default(cuid())
+  brandName          String   @default("Joslyne Keehmer")
+  instagramUrl       String?
+  contactEmail       String?
+  homepageTitle      String   @default("Photography by Joslyne Keehmer")
+  homepageIntro      String   @default("A clean portfolio for weddings, portraits, street, film, and nature photography.")
+  heroEyebrow        String   @default("Wedding · Portrait · Film · Nature")
+  heroButtonText     String   @default("Explore the work")
+  heroImageUrl       String?
+  heroImageAlt       String?
+  heroLeftImageUrl   String?
+  heroLeftImageAlt   String?
+  heroRightImageUrl  String?
+  heroRightImageAlt  String?
+  aboutPreviewTitle  String?
+  aboutPreviewBody   String?  @db.Text
+  aboutPreviewImageUrl String?
+  gallerySliderTitle String   @default("Browse the galleries")
+  gallerySliderIntro String   @default("Explore Joslyne’s collections through weddings, portraits, street photography, film, and nature.")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
