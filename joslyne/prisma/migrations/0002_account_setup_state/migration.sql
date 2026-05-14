@@ -1,0 +1,1 @@
+ALTER TABLE "AdminUser" ADD COLUMN IF NOT EXISTS "accountSetupComplete" BOOLEAN NOT NULL DEFAULT false;

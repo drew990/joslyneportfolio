@@ -1,0 +1,7 @@
+ALTER TABLE "SiteSetting" ADD COLUMN IF NOT EXISTS "heroLeftImageUrl" TEXT;
+ALTER TABLE "SiteSetting" ADD COLUMN IF NOT EXISTS "heroLeftImageAlt" TEXT;
+ALTER TABLE "SiteSetting" ADD COLUMN IF NOT EXISTS "heroRightImageUrl" TEXT;
+ALTER TABLE "SiteSetting" ADD COLUMN IF NOT EXISTS "heroRightImageAlt" TEXT;
+ALTER TABLE "SiteSetting" ADD COLUMN IF NOT EXISTS "aboutPreviewTitle" TEXT;
+ALTER TABLE "SiteSetting" ADD COLUMN IF NOT EXISTS "aboutPreviewBody" TEXT;
+ALTER TABLE "SiteSetting" ADD COLUMN IF NOT EXISTS "aboutPreviewImageUrl" TEXT;
